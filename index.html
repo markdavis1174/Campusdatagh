@@ -3,408 +3,391 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ByGrace Data Hub</title>
+  <title>Ghana Data Bundle</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
     }
 
-    body {
-      background: #050816;
-      color: white;
-      overflow-x: hidden;
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
     }
 
-    .bg-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      background: linear-gradient(45deg, #00ffcc, #0066ff);
-      filter: blur(180px);
-      opacity: 0.2;
-      top: -200px;
-      right: -150px;
-      z-index: -1;
+    .glow{
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:linear-gradient(45deg,#00ffcc,#0066ff);
+      filter:blur(150px);
+      opacity:0.2;
+      top:-150px;
+      right:-100px;
+      z-index:-1;
     }
 
-    header {
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: rgba(5, 8, 22, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      position:sticky;
+      top:0;
+      background:rgba(5,8,22,0.9);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(to right, #00ffcc, #00a2ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .logo{
+      font-size:28px;
+      font-weight:800;
+      background:linear-gradient(to right,#00ffcc,#00a2ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    nav a {
-      text-decoration: none;
-      color: white;
-      margin-left: 25px;
-      font-size: 15px;
-      transition: 0.3s;
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      transition:0.3s;
     }
 
-    nav a:hover {
-      color: #00ffcc;
+    nav a:hover{
+      color:#00ffcc;
     }
 
-    .hero {
-      padding: 100px 8% 70px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      align-items: center;
-      gap: 50px;
+    .hero{
+      padding:100px 8%;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      align-items:center;
+      gap:50px;
     }
 
-    .hero-text h1 {
-      font-size: 60px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .hero h1{
+      font-size:60px;
+      line-height:1.1;
+      margin-bottom:20px;
     }
 
-    .hero-text h1 span {
-      color: #00ffcc;
+    .hero h1 span{
+      color:#00ffcc;
     }
 
-    .hero-text p {
-      color: #c8d0e0;
-      margin-bottom: 30px;
-      font-size: 17px;
-      line-height: 1.7;
+    .hero p{
+      color:#c7d0df;
+      line-height:1.8;
+      margin-bottom:30px;
+      font-size:17px;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+    .btn{
+      display:inline-block;
+      padding:15px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.3s;
     }
 
-    .btn {
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-block;
+    .btn-primary{
+      background:linear-gradient(45deg,#00ffcc,#0066ff);
+      color:white;
+      box-shadow:0 10px 25px rgba(0,255,204,0.3);
     }
 
-    .primary-btn {
-      background: linear-gradient(45deg, #00ffcc, #0066ff);
-      color: white;
-      box-shadow: 0 10px 25px rgba(0,255,204,0.3);
+    .btn-primary:hover{
+      transform:translateY(-5px);
     }
 
-    .primary-btn:hover {
-      transform: translateY(-4px);
+    .hero img{
+      width:100%;
+      border-radius:30px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
     }
 
-    .secondary-btn {
-      border: 2px solid #00ffcc;
-      color: #00ffcc;
+    section{
+      padding:80px 8%;
     }
 
-    .secondary-btn:hover {
-      background: #00ffcc;
-      color: black;
+    .title{
+      text-align:center;
+      margin-bottom:50px;
     }
 
-    .hero-image {
-      text-align: center;
+    .title h2{
+      font-size:42px;
+      margin-bottom:10px;
     }
 
-    .hero-image img {
-      width: 100%;
-      max-width: 480px;
-      border-radius: 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    .title p{
+      color:#c7d0df;
     }
 
-    section {
-      padding: 80px 8%;
+    .bundle-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      padding:30px;
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
     }
 
-    .section-title h2 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .card::before{
+      content:'';
+      position:absolute;
+      width:120px;
+      height:120px;
+      background:#00ffcc;
+      filter:blur(90px);
+      top:-20px;
+      right:-20px;
+      opacity:0.3;
     }
 
-    .section-title p {
-      color: #b7c1d6;
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#00ffcc;
     }
 
-    .bundle-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    .network{
+      color:#00ffcc;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:10px;
     }
 
-    .bundle-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 25px;
-      padding: 30px;
-      transition: 0.3s;
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
+    .card h3{
+      font-size:40px;
+      margin-bottom:10px;
     }
 
-    .bundle-card::before {
-      content: '';
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: #00ffcc;
-      filter: blur(100px);
-      top: -30px;
-      right: -30px;
-      opacity: 0.3;
+    .price{
+      font-size:30px;
+      font-weight:700;
+      margin-bottom:15px;
     }
 
-    .bundle-card:hover {
-      transform: translateY(-10px);
-      border-color: #00ffcc;
+    .card ul{
+      list-style:none;
+      margin-bottom:25px;
     }
 
-    .network {
-      font-size: 14px;
-      color: #00ffcc;
-      margin-bottom: 10px;
-      font-weight: 600;
+    .card ul li{
+      margin-bottom:10px;
+      color:#d2d9e6;
     }
 
-    .bundle-card h3 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .buy-btn{
+      display:block;
+      text-align:center;
+      background:linear-gradient(45deg,#00ffcc,#0066ff);
+      color:white;
+      text-decoration:none;
+      padding:14px;
+      border-radius:50px;
+      font-weight:700;
+      transition:0.3s;
     }
 
-    .price {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 15px;
+    .buy-btn:hover{
+      transform:scale(1.03);
     }
 
-    .bundle-card ul {
-      list-style: none;
-      margin-bottom: 25px;
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
 
-    .bundle-card ul li {
-      margin-bottom: 10px;
-      color: #d1d8e6;
+    .feature-box{
+      background:rgba(255,255,255,0.04);
+      border-radius:25px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,0.08);
     }
 
-    .whatsapp-btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      background: #25D366;
-      color: white;
-      padding: 14px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s;
+    .feature-box h4{
+      margin:15px 0;
+      font-size:22px;
     }
 
-    .whatsapp-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 20px rgba(37,211,102,0.4);
+    .feature-box p{
+      color:#c7d0df;
+      line-height:1.7;
     }
 
-    .why-us {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .feature {
-      background: rgba(255,255,255,0.04);
-      padding: 30px;
-      border-radius: 25px;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .feature h4 {
-      margin: 15px 0;
-      font-size: 22px;
-    }
-
-    .feature p {
-      color: #c5cfe2;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 40px 8%;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #b7c1d6;
+    footer{
+      padding:40px 8%;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#c7d0df;
     }
 
     @media(max-width:768px){
-      .hero-text h1 {
-        font-size: 42px;
+      .hero h1{
+        font-size:42px;
       }
 
-      nav {
-        display: none;
+      nav{
+        display:none;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="bg-glow"></div>
+<div class="glow"></div>
 
 <header>
-  <div class="logo">ByGrace Data Hub</div>
+  <div class="logo">Ghana Data Bundle</div>
+
   <nav>
     <a href="#bundles">Bundles</a>
-    <a href="#why">Why Us</a>
-    <a href="#contact">Contact</a>
+    <a href="#features">Features</a>
+    <a href="#buy">Buy Now</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>Fast & Affordable <span>Data Bundles</span> In Ghana</h1>
+  <div>
+    <h1>Affordable <span>Ghana Data Bundles</span> Delivered Fast</h1>
+
     <p>
-      Buy MTN, Telecel and AirtelTigo bundles instantly through WhatsApp. 
-      Reliable, affordable and delivered quickly with trusted customer support.
+      Buy cheap MTN, Telecel and AirtelTigo bundles online in Ghana with fast activation and trusted service. Reliable internet packages at affordable prices.
     </p>
 
-    <div class="hero-buttons">
-      <a href="https://wa.me/233000000000?text=Hello%20ByGrace%20Data%20Hub%2C%20I%20want%20to%20buy%20a%20bundle." class="btn primary-btn">Buy On WhatsApp</a>
-
-      <a href="#bundles" class="btn secondary-btn">View Bundles</a>
-    </div>
+    <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="btn btn-primary">Buy Data Now</a>
   </div>
 
-  <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop" alt="Data Bundle">
+  <div>
+    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop" alt="Ghana Data Bundle">
   </div>
 </section>
 
 <section id="bundles">
-  <div class="section-title">
-    <h2>Popular Data Bundles</h2>
-    <p>Select your preferred bundle and message us directly on WhatsApp.</p>
+  <div class="title">
+    <h2>Popular Bundles</h2>
+    <p>Choose your preferred internet package below.</p>
   </div>
 
   <div class="bundle-grid">
 
-    <div class="bundle-card">
+    <div class="card">
       <div class="network">MTN Bundle</div>
       <h3>5GB</h3>
       <div class="price">GH₵ 20</div>
+
       <ul>
         <li>Fast Delivery</li>
-        <li>Reliable Service</li>
-        <li>24/7 Support</li>
+        <li>Affordable Price</li>
+        <li>Reliable Activation</li>
       </ul>
-      <a class="whatsapp-btn" href="https://wa.me/233000000000?text=Hello%20I%20want%20to%20buy%205GB%20MTN%20bundle">Order Now</a>
+
+      <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="buy-btn">Purchase Bundle</a>
     </div>
 
-    <div class="bundle-card">
+    <div class="card">
       <div class="network">MTN Bundle</div>
       <h3>10GB</h3>
       <div class="price">GH₵ 35</div>
+
       <ul>
         <li>Instant Activation</li>
-        <li>Affordable Price</li>
-        <li>Trusted Seller</li>
+        <li>Trusted Service</li>
+        <li>24/7 Support</li>
       </ul>
-      <a class="whatsapp-btn" href="https://wa.me/233000000000?text=Hello%20I%20want%20to%20buy%2010GB%20MTN%20bundle">Order Now</a>
+
+      <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="buy-btn">Purchase Bundle</a>
     </div>
 
-    <div class="bundle-card">
+    <div class="card">
       <div class="network">Telecel Bundle</div>
       <h3>15GB</h3>
       <div class="price">GH₵ 50</div>
+
       <ul>
-        <li>Quick Response</li>
-        <li>Secure Purchase</li>
+        <li>Quick Processing</li>
         <li>Affordable Deals</li>
+        <li>Secure Purchase</li>
       </ul>
-      <a class="whatsapp-btn" href="https://wa.me/233000000000?text=Hello%20I%20want%20to%20buy%2015GB%20Telecel%20bundle">Order Now</a>
+
+      <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="buy-btn">Purchase Bundle</a>
     </div>
 
-    <div class="bundle-card">
+    <div class="card">
       <div class="network">AirtelTigo Bundle</div>
       <h3>20GB</h3>
       <div class="price">GH₵ 70</div>
+
       <ul>
-        <li>Trusted Delivery</li>
-        <li>Premium Service</li>
+        <li>Premium Speed</li>
+        <li>Trusted Seller</li>
         <li>Fast Support</li>
       </ul>
-      <a class="whatsapp-btn" href="https://wa.me/233000000000?text=Hello%20I%20want%20to%20buy%2020GB%20AirtelTigo%20bundle">Order Now</a>
+
+      <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="buy-btn">Purchase Bundle</a>
     </div>
 
   </div>
 </section>
 
-<section id="why">
-  <div class="section-title">
-    <h2>Why Choose Us</h2>
-    <p>Trusted by customers across Ghana for affordable and reliable data bundles.</p>
+<section id="features">
+  <div class="title">
+    <h2>Why Choose Ghana Data Bundle</h2>
+    <p>Reliable internet bundle service trusted by customers across Ghana.</p>
   </div>
 
-  <div class="why-us">
-    <div class="feature">
-      <h4>⚡ Instant Delivery</h4>
-      <p>Your bundle is processed quickly after payment confirmation.</p>
+  <div class="features">
+
+    <div class="feature-box">
+      <h4>⚡ Fast Activation</h4>
+      <p>Your data bundle is processed quickly after purchase.</p>
     </div>
 
-    <div class="feature">
-      <h4>💬 WhatsApp Support</h4>
-      <p>Customers can easily contact you directly for orders and assistance.</p>
+    <div class="feature-box">
+      <h4>💰 Affordable Prices</h4>
+      <p>Enjoy cheap internet bundles with premium quality service.</p>
     </div>
 
-    <div class="feature">
-      <h4>🔒 Trusted Service</h4>
-      <p>Professional and reliable platform designed to build customer trust.</p>
+    <div class="feature-box">
+      <h4>🔒 Trusted Platform</h4>
+      <p>Professional and secure platform designed for Ghanaian users.</p>
     </div>
+
   </div>
 </section>
 
-<section id="contact">
-  <div class="section-title">
-    <h2>Contact Us</h2>
-    <p>Ready to purchase your data bundle?</p>
+<section id="buy">
+  <div class="title">
+    <h2>Ready To Buy?</h2>
+    <p>Click below to access all available Ghana data bundles.</p>
   </div>
 
   <div style="text-align:center;">
-    <a href="https://wa.me/233000000000?text=Hello%20ByGrace%20Data%20Hub" class="btn primary-btn">Chat With Us On WhatsApp</a>
+    <a href="https://www.cheapdata.shop/shop/ghana-data-bundle" class="btn btn-primary">Visit Store</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 ByGrace Data Hub. All Rights Reserved.</p>
+  <p>© 2024-2026 Ghana Data Bundle. All Rights Reserved.</p>
 </footer>
 
 </body>
