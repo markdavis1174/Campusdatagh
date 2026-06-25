@@ -56,45 +56,6 @@
     }
 
     body{
-      <!-- Announcement Popup -->
-<div id="announcementPopup" class="popup-overlay">
-
-  <div class="popup-box">
-
-    <span class="popup-close" onclick="closePopup()">&times;</span>
-
-    <div class="popup-header">
-      <small>UPDATE</small>
-      <h2>Service Upgrade</h2>
-    </div>
-
-    <div class="popup-body">
-      <p>
-        Service Notice: Our data service will be closing at 12am
-        (midnight) tonight for a system upgrade.
-      </p>
-
-      <p>
-        Kindly complete any urgent orders before then.
-        Your wallet balance remains safe and all pending orders
-        will be processed automatically once services resume.
-      </p>
-    </div>
-
-    <button class="popup-btn" onclick="closePopup()">
-      Got it
-    </button>
-
-    <div class="popup-footer">
-      <label>
-        <input type="checkbox" id="dontShowAgain">
-        Don't show this again
-      </label>
-    </div>
-
-  </div>
-
-</div>
       background:#050816;
       color:white;
       overflow-x:hidden;
@@ -437,75 +398,7 @@
     padding: 8px 12px;
     font-size: 14px;
   }
-} 
-  /* Announcement Popup */
-.popup-overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.8);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:10000;
-}
-
-.popup-box{
-  width:420px;
-  max-width:90%;
-  background:#1f2937;
-  border-radius:20px;
-  overflow:hidden;
-  color:white;
-  position:relative;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
-}
-
-.popup-header{
-  background:linear-gradient(135deg,#007bff,#6a00ff);
-  padding:25px;
-  text-align:center;
-}
-
-.popup-header h2{
-  margin-top:10px;
-}
-
-.popup-body{
-  padding:20px;
-  line-height:1.7;
-  color:#d1d5db;
-}
-
-.popup-btn{
-  display:block;
-  width:calc(100% - 40px);
-  margin:0 20px 15px;
-  background:#2563eb;
-  color:#fff;
-  border:none;
-  padding:12px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
-}
-
-.popup-close{
-  position:absolute;
-  right:15px;
-  top:10px;
-  font-size:24px;
-  cursor:pointer;
-  color:#fff;
-}
-
-.popup-footer{
-  text-align:center;
-  padding-bottom:15px;
-  font-size:13px;
-}
+}  
   </style>
 </head>
 
@@ -524,6 +417,56 @@
   </nav>
 
 </header>
+<!-- Announcement Bar -->
+
+<div id="announcement-bar" style="
+background: linear-gradient(45deg,#ff9800,#ff5722);
+color:#fff;
+padding:15px 8%;
+text-align:left;
+font-size:15px;
+line-height:1.7;
+border-bottom:1px solid rgba(255,255,255,0.1);
+">
+
+<div style="max-width:1200px;margin:auto;position:relative;">
+
+<button onclick="document.getElementById('announcement-bar').style.display='none'"
+style="
+position:absolute;
+right:0;
+top:0;
+background:#fff;
+color:#ff5722;
+border:none;
+border-radius:50%;
+width:30px;
+height:30px;
+font-weight:bold;
+cursor:pointer;
+">
+✕ </button>
+
+<p style="margin-right:40px;">
+📢 <strong>IMPORTANT NETWORK UPDATE: CampusDataGH</strong><br><br>
+
+Dear Valued Customers,<br><br>
+
+Please be informed that MTN is currently undergoing a major portal upgrade to improve network performance and service delivery.<br><br>
+
+As a result, data processing may experience temporary adjustments. Full, seamless operations will officially resume on <strong>Wednesday, 1st July 2026</strong>.<br><br>
+
+We kindly ask you to stay tuned to our WhatsApp Channel for real-time updates. Thank you for your continued patience and partnership as we work to serve you better.<br><br>
+
+<strong>Best regards,<br>
+Management, CampusDataGH 🤝</strong>
+
+</p>
+
+</div>
+
+</div>
+<!-- End Announcement Bar -->
 
 <section class="hero">
 
@@ -716,20 +659,5 @@
     </a>
 
 </div>
-  <script>
-function closePopup() {
-  if (document.getElementById("dontShowAgain").checked) {
-    localStorage.setItem("hideAnnouncement", "true");
-  }
-
-  document.getElementById("announcementPopup").style.display = "none";
-}
-
-window.onload = function () {
-  if (localStorage.getItem("hideAnnouncement") === "true") {
-    document.getElementById("announcementPopup").style.display = "none";
-  }
-};
-  </script>
 </body>
-    </html>
+  </html>
