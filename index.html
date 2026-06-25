@@ -44,6 +44,134 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+  /* Overlay background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Smooth dark backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Keeps it on top of everything */
+}
+
+/* Main popup container */
+.modal-box {
+    width: 90%;
+    max-width: 400px;
+    background-color: #1a2230; /* Dark background matching the image */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Blue gradient header */
+.modal-header {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    color: #ffffff;
+}
+
+/* Close icon 'X' */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+.close-btn:hover { color: #fff; }
+
+/* Icon circle */
+.info-icon {
+    background: #ffffff;
+    color: #007bff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 auto 8px;
+    font-size: 18px;
+}
+
+/* Tiny 'UPDATE' pill */
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 24px;
+    text-align: center;
+    color: #a0aec0; /* Soft grey text */
+}
+
+.modal-illustration img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.modal-text {
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.primary-btn {
+    width: 100%;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+.primary-btn:hover { background-color: #0052cc; }
+
+.secondary-btn {
+    background: none;
+    border: none;
+    color: #718096;
+    font-size: 11px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.secondary-btn:hover { color: #a0aec0; }
+
+/* Smooth scale-in animation */
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
     *{
       margin:0;
       padding:0;
@@ -56,6 +184,41 @@
     }
 
     body{
+      <!-- The Modal Overlay (Darkens the background) -->
+<div id="updateModal" class="modal-overlay">
+    
+    <!-- The Modal Box -->
+    <div class="modal-box">
+        
+        <!-- Blue Gradient Header -->
+        <div class="modal-header">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="info-icon">ⓘ</div>
+            <span class="badge">UPDATE</span>
+            <h2>Update</h2>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div class="modal-body">
+            <!-- Illustration Placeholder (Using a clean placeholder vector) -->
+            <div class="modal-illustration">
+                <img src="https://illustrations.popsy.co/amber/work-from-home.svg" alt="Working Illustration">
+            </div>
+            
+            <p class="modal-text">
+                Service Notice: Our data service will be CLOSING at 12am (midnight) tonight for a system upgrade on the Yello portal. 
+                Kindly complete any urgent orders before then, as data orders will be paused during the upgrade. Your wallet balance is 
+                100% safe and untouched. Any pending orders will be processed automatically once we are back, and deliveries should be 
+                faster afterwards. We will alert you the moment we are back online. Thank you for your patience.
+            </p>
+            
+            <!-- Action Buttons -->
+            <button class="primary-btn" onclick="closeModal()">Got it</button>
+            <button class="secondary-btn" onclick="dontShowAgain()">Don't show this again</button>
+        </div>
+        
+    </div>
+</div>
       background:#050816;
       color:white;
       overflow-x:hidden;
@@ -609,5 +772,27 @@
     </a>
 
 </div>
+  <script>
+    // Runs automatically when the page loads
+    window.onload = function() {
+        // Checks if user previously clicked "Don't show this again"
+        if (localStorage.getItem("hideUpdateModal") === "true") {
+            document.getElementById("updateModal").style.display = "none";
+        } else {
+            document.getElementById("updateModal").style.display = "flex";
+        }
+    }
+
+    // Function to close the modal temporarily
+    function closeModal() {
+        document.getElementById("updateModal").style.display = "none";
+    }
+
+    // Function to hide it permanently for this user
+    function dontShowAgain() {
+        localStorage.setItem("hideUpdateModal", "true");
+        closeModal();
+    }
+  </script>
 </body>
   </html>
